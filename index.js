@@ -18,8 +18,14 @@ function koa_querybody(opts) {
   return function (ctx, next) {
     
     let params = Object.assign({}, ctx.request.query);
-    let body = ctx.request.body;
-    if (body !== null && typeof(body) === 'object') {
+    
+    // merge req.body
+    if (ctx.req.body !== null && typeof(ctx.req.body) === 'object') {
+      params = Object.assign(params, ctx.req.body);
+    }
+    
+    // merge request.body
+    if (ctx.request.body !== null && typeof(ctx.request.body) === 'object') {
       params = Object.assign(params, ctx.request.body);
     }
   
