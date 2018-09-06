@@ -18,7 +18,7 @@ function koa_querybody(opts) {
   return function (ctx, next) {
     
     let params = Object.assign({}, ctx.request.query);
-  
+    let body = ctx.request.body;
     if (body !== null && typeof(body) === 'object') {
       params = Object.assign(params, ctx.request.body);
     }
