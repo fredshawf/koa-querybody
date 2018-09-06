@@ -1,6 +1,6 @@
 {
   "name": "koa-querybody",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "koa-querybody is a koa middleware for merging content.request.query and content.request.body (if it exist)",
   "main": "index.js",
   "scripts": {
