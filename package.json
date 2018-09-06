@@ -1,0 +1,26 @@
+{
+  "name": "koa-querybody",
+  "version": "1.0.0",
+  "description": "koa-querybody is a koa middleware for merging content.request.query and content.request.body (if it exist)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fredxiaoF/koa-querybody.git"
+  },
+  "keywords": [
+    "koa",
+    "middleware",
+    "params",
+    "query",
+    "body"
+  ],
+  "author": "Fred Shaw",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fredxiaoF/koa-querybody/issues"
+  },
+  "homepage": "https://github.com/fredxiaoF/koa-querybody#readme"
+}
