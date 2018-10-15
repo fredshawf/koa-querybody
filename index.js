@@ -15,7 +15,7 @@ module.exports = koa_querybody;
 
 function koa_querybody(opts) {
   
-  return function (ctx, next) {
+  return async function (ctx, next) {
     
     let params = Object.assign({}, ctx.request.query);
     
@@ -31,7 +31,7 @@ function koa_querybody(opts) {
   
     ctx.params = params;
     ctx.request.params = params;
-    next();  
+    await next();
   };
 }
 
