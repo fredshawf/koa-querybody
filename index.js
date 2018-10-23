@@ -49,6 +49,10 @@ function koa_querybody(opts) {
       ctx.request.params = params;
     }
     
+    if (opts.logger){
+      opts.logger.debug(`  Parameters: ${JSON.stringify(ctx.params)}`);
+    }
+    
     await next();
   };
 }
