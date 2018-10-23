@@ -17,6 +17,7 @@ function koa_querybody(opts) {
   
   return async function (ctx, next) {
     
+    // merge request.query
     let params = Object.assign({}, ctx.request.query);
     
     // merge req.body
@@ -28,9 +29,26 @@ function koa_querybody(opts) {
     if (ctx.request.body !== null && typeof(ctx.request.body) === 'object') {
       params = Object.assign(params, ctx.request.body);
     }
+    
+    // merge request.files
+    if (ctx.request.files !== null && typeof(ctx.request.files) === 'object') {
+      params = Object.assign(params, ctx.request.files);
+    }
   
-    ctx.params = params;
-    ctx.request.params = params;
+    // merge to ctx.params
+    if (ctx.params && typeof(ctx.params) === 'object') {
+      Object.assign(ctx.params, params);
+    } else {
+      ctx.params = params;
+    }
+    
+    // merge to ctx.request.params
+    if (ctx.request.params && typeof(ctx.request.params) === 'object') {
+      Object.assign(ctx.request.params, params);
+    } else {
+      ctx.request.params = params;
+    }
+    
     await next();
   };
 }
