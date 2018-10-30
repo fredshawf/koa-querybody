@@ -13,7 +13,7 @@
 module.exports = koa_querybody;
 
 
-function koa_querybody(opts) {
+function koa_querybody(opts={}) {
   
   return async function (ctx, next) {
     
